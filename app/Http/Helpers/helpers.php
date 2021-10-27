@@ -43,8 +43,8 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
     $tanggal = substr($tgl, 8, 2);
     $text = '';
 
-    if($tampil_hari) {
-        $urutan_hari = date('w', mktime(0,0,0, substr($tgl, 5, 2), $tanggal, $tahun));
+    if ($tampil_hari) {
+        $urutan_hari = date('w', mktime(0, 0, 0, substr($tgl, 5, 2), $tanggal, $tahun));
         $hari = $nama_hari[$urutan_hari];
         $text .= "$hari, $tanggal $bulan $tahun";
     } else {
@@ -53,4 +53,9 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
 
     $text .= "$tanggal $bulan $tahun";
     return $text;
+}
+
+function tambah_nol_didepan($value, $threshold = null)
+{
+    return sprintf("%0". $threshold . "s", $value);
 }
